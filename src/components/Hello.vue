@@ -1,13 +1,15 @@
 <template>
   <div>
-    <h1>hello!! {{ name }}</h1>
+    <h1>hello!! {{ uppercase }}</h1>
   </div>
 </template>
 
 <script setup lang="ts">
-defineProps({
+const props = defineProps({
   name: String
 })
+
+const uppercase = computed(() => props.name.toUpperCase())
 </script>
 
 <style scoped></style>
