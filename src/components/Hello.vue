@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <h1>hello!! {{ uppercase }}</h1>
-  </div>
+  <div text="blue 4xl" font="sans normal">hello!! {{ uppercase }}</div>
+  <div i-carbon-bee text="4xl yellow"></div>
 </template>
 
 <script setup lang="ts">
