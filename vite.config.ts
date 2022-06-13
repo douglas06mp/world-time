@@ -12,7 +12,7 @@ export default defineConfig({
   plugins: [
     Vue(),
     Components(),
-    AutoImport({ imports: ['vue'] }),
+    AutoImport({ imports: ['vue'], dirs: ['./src/composables'], vueTemplate: true }),
     UnoCss({
       presets: [presetUno(), presetAttributify(), presetIcons()]
     })

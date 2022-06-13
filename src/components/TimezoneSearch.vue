@@ -24,10 +24,8 @@
 </template>
 
 <script setup lang="ts">
-import { timezones } from '../composables/data'
 import { Timezone } from '../type'
 import Fuse from 'fuse.js'
-import { addToTimezone } from '../composables/state'
 
 const fuse = new Fuse<Timezone>(timezones, {
   keys: ['name']
