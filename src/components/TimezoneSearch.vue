@@ -31,14 +31,16 @@ const fuse = new Fuse<Timezone>(timezones, {
   keys: ['name']
 })
 
-const input = ref('')
+let input = $ref('')
+let index = $ref(0)
 const searchResult = computed(() => {
-  return fuse.search(input.value)
+  return fuse.search(input)
 })
 
 const add = (t: Timezone) => {
   addToTimezone(t)
-  input.value = ''
+  input = ''
+  index = 0
 }
 </script>
 
