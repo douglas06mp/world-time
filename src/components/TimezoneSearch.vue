@@ -4,9 +4,9 @@
       v-model="input"
       type="text"
       placeholder="Search timezone..."
-      px2
-      py1
-      border="~ gray/15 rounded"
+      p="x3 y2"
+      text-xl
+      border="~ base rounded"
       w-full
       bg-transparent
     />

@@ -1,5 +1,5 @@
 <template>
-  <div border="~ gray/15" m2>
+  <div border="~ base" p2>
     <TimezoneSearch />
   </div>
 </template>
