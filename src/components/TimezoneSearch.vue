@@ -2,6 +2,7 @@
   <div relative>
     <input
       v-model="input"
+      @keydown="onKeywdown"
       type="text"
       placeholder="Search timezone..."
       p="x3 y2"
@@ -10,14 +11,29 @@
       w-full
       bg-transparent
     />
-    <div v-show="input" absolute top-full bg-gray-900 left-0 right-0>
-      <button v-for="i of searchResult" :key="i.refIndex" @click="add(i.item)" flex gap2>
-        <div font-mono w-10 text-right>
-          {{ i.item.offset }}
-        </div>
-        <div>
-          {{ i.item.name }}
-        </div>
+    <div
+      v-show="input"
+      absolute
+      top-full
+      bg-base
+      border="~ base"
+      p1
+      left-0
+      right-0
+      max-h-100
+      overflow-auto
+    >
+      <button
+        v-for="(i, idx) of searchResult"
+        :key="i.refIndex"
+        :class="idx === index ? 'bg-gray:10' : ''"
+        @click="add(i.item)"
+        block
+        w-full
+        flex
+        gap2
+      >
+        <TimezoneItem :timezone="i.item" />
       </button>
     </div>
   </div>
@@ -33,7 +49,7 @@ const fuse = new Fuse<Timezone>(timezones, {
 
 let input = $ref('')
 let index = $ref(0)
-const searchResult = computed(() => {
+const searchResult = $computed(() => {
   return fuse.search(input)
 })
 
@@ -41,6 +57,13 @@ const add = (t: Timezone) => {
   addToTimezone(t)
   input = ''
   index = 0
+}
+
+const onKeywdown = (e: KeyboardEvent) => {
+  if (e.key === 'ArrowDown') index = (index + 1) % searchResult.length
+  else if (e.key === 'ArrowUp')
+    index = (index - 1 + searchResult.length) % searchResult.length
+  else if (e.key === 'Enter') add(searchResult[index].item)
 }
 </script>
 

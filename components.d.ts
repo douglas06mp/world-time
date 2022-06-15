@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
     Hello: typeof import('./src/components/Hello.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
     TimeScheduler: typeof import('./src/components/TimeScheduler.vue')['default']
+    TimezoneItem: typeof import('./src/components/TimezoneItem.vue')['default']
     TimezoneSearch: typeof import('./src/components/TimezoneSearch.vue')['default']
   }
 }
