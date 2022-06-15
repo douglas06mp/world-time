@@ -16,12 +16,13 @@
       absolute
       top-full
       bg-base
-      border="~ base"
-      p1
+      border="~ base rounded"
       left-0
       right-0
       max-h-100
       overflow-auto
+      z-10
+      shadow
     >
       <button
         v-for="(i, idx) of searchResult"
@@ -32,6 +33,7 @@
         w-full
         flex
         gap2
+        px2
       >
         <TimezoneItem :timezone="i.item" />
       </button>

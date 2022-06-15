@@ -3,7 +3,7 @@
     <div font-bold w-8 ma op80>
       {{ offset }}
     </div>
-    <div flex="~ col" text-left>
+    <div flex="~ col" text-left flex-auto>
       <div>{{ city }}</div>
       <div text-sm leading-1em op50>{{ state }}</div>
     </div>
