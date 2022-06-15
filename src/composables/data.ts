@@ -5,6 +5,7 @@ export const timezones: Timezone[] = timezoneRaw.flatMap((i) =>
   i.utc.map((u) => ({
     name: u,
     offset: i.offset,
-    isdst: i.isdst
+    isdst: i.isdst,
+    abbr: i.abbr
   }))
 )
