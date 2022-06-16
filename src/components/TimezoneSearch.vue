@@ -52,7 +52,7 @@ const fuse = new Fuse<Timezone>(timezones, {
 let input = $ref('')
 let index = $ref(0)
 const searchResult = $computed(() => {
-  return fuse.search(input)
+  return fuse.search(input).slice(0, 20)
 })
 
 const add = (t: Timezone) => {
