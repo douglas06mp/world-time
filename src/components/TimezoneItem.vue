@@ -1,6 +1,6 @@
 <template>
   <div flex="~ wrap" gap2 py1 w-full items-center>
-    <div font-bold w-8 ma op80>
+    <div :title="`${timezone.offset} GMT`" font-bold w-8 ma op80 text-center>
       {{ offset }}
     </div>
     <div flex="~ col" text-left flex-auto>
@@ -30,10 +30,11 @@ const formatter = new Intl.DateTimeFormat('en-US', {
 })
 
 const state = $computed(() => timezone.name.split('/')[0])
-const city = $computed(() => timezone.name.split('/')[1].replace(/_/g, ' '))
-const offset = $computed(() =>
-  timezone.offset > 0 ? `+${timezone.offset}` : timezone.offset
-)
+const city = $computed(() => timezone.name.split('/')[1]?.replace(/_/g, ' '))
+const offset = $computed(() => {
+  const offset = timezone.offset - currentOffset.value
+  return offset > 0 ? `+${offset}` : offset
+})
 const time = $computed(() => formatter.format(now.value))
 </script>
 
