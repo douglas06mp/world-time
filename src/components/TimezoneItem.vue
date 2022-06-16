@@ -1,5 +1,5 @@
 <template>
-  <div flex gap2 py1 w-full>
+  <div flex="~ wrap" gap2 py1 w-full items-center>
     <div font-bold w-8 ma op80>
       {{ offset }}
     </div>
@@ -11,6 +11,7 @@
       <div text-sm leading-1em op50>{{ state }}</div>
     </div>
     <div tabular-nums>{{ time }}</div>
+    <slot />
   </div>
 </template>
 
