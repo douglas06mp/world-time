@@ -13,6 +13,7 @@
     />
     <div
       v-show="input"
+      ref="modal"
       absolute
       top-full
       bg-base
@@ -29,11 +30,13 @@
         :key="i.refIndex"
         :class="idx === index ? 'bg-gray:10' : ''"
         @click="add(i.item)"
+        hover="bg-gray/5"
+        border="b base"
         block
         w-full
         flex
         gap2
-        px2
+        p="x2 y1"
       >
         <TimezoneItem :timezone="i.item" />
       </button>
@@ -67,6 +70,14 @@ const onKeywdown = (e: KeyboardEvent) => {
     index = (index - 1 + searchResult.length) % searchResult.length
   else if (e.key === 'Enter') add(searchResult[index].item)
 }
+
+const modal = ref<HTMLDivElement>()
+onClickOutside(modal, () => {
+  if (input) {
+    input = ''
+    index = 0
+  }
+})
 </script>
 
 <style></style>

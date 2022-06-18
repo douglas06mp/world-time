@@ -2,7 +2,7 @@
   <div flex="~ wrap" gap2 py1 w-full items-center>
     <div :title="`${timezone.offset} GMT`" font-bold w-8 ma op80 text-center>
       <div v-if="timezone.name === homeZone.value" i-ri-home-2-fill ma op50></div>
-      <template v-else>{{ offset }}</template>
+      <div v-else text-sky6>{{ offset }}</div>
     </div>
     <div flex="~ col" text-left flex-auto>
       <div>
@@ -11,7 +11,7 @@
       </div>
       <div text-sm leading-1em op50>{{ state }}</div>
     </div>
-    <div tabular-nums>{{ time }}</div>
+    <div tabular-nums text-sm>{{ time }}</div>
     <slot />
   </div>
 </template>
@@ -25,7 +25,7 @@ const { timezone } = defineProps<{
 
 const formatter = new Intl.DateTimeFormat('en-US', {
   timeZone: timezone.name,
-  hour12: false,
+  hour12: true,
   hour: 'numeric',
   minute: 'numeric'
 })
