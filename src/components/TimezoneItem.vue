@@ -1,7 +1,8 @@
 <template>
   <div flex="~ wrap" gap2 py1 w-full items-center>
     <div :title="`${timezone.offset} GMT`" font-bold w-8 ma op80 text-center>
-      {{ offset }}
+      <div v-if="timezone.name === homeZone.value" i-ri-home-2-fill ma op50></div>
+      <template v-else>{{ offset }}</template>
     </div>
     <div flex="~ col" text-left flex-auto>
       <div>
