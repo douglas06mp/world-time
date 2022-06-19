@@ -40,7 +40,7 @@ const { x, y } = useMouse()
 const overlay = ref<HTMLElement>()
 const box = reactive(useElementBounding(overlay))
 
-useEventListener('mousedown', (e) => {
+useEventListener('pointerdown', (e) => {
   leftEdge = x.value - box.left
 })
 
