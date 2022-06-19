@@ -1,5 +1,5 @@
 <template>
-  <div flex="~ gap1" of-auto items-end select-none>
+  <div flex of-auto items-end select-none>
     <template v-for="(day, idx) of days" :key="idx">
       <div v-if="day.length" flex="~ none" border="~ sky7/30 rounded" of-hidden>
         <div
@@ -8,9 +8,9 @@
           :class="[
             isMidnight(i) ? 'bg-sky7/70 text-white' : isNight(i) ? 'bg-sky7/20' : ''
           ]"
+          :style="{ width: `${dayCellWidth}px` }"
           flex="~ col none"
-          w-7
-          h-8
+          h8
           items-center
           justify-center
         >

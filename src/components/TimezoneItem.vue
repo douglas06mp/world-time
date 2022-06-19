@@ -4,14 +4,14 @@
       <div v-if="timezone.name === homeZone.value" i-ri-home-2-fill op80 ma />
       <div v-else text-sky6>{{ offset }}</div>
     </div>
-    <div flex="~ col" text-left flex-auto w-30>
+    <div flex="~ col" text-left flex-auto w-30 ws-nowrap>
       <div>
-        {{ city }}
+        <span of-hidden text-ellipsis mr1> {{ city }}</span>
         <sup border="~ base rounded" px1>{{ timezone.abbr }}</sup>
       </div>
       <div text-sm op50 leading-1em>{{ state }}</div>
     </div>
-    <div tabular-nums ma text-sm w-20>{{ time }}</div>
+    <div tabular-nums ma text="sm right" w-20>{{ time }}</div>
   </div>
 </template>
 

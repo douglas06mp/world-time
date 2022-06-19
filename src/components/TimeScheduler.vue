@@ -1,10 +1,10 @@
 <template>
-  <div relative>
+  <div relative select-none>
     <div flex="~ col" absolute left--6 top-0 bottom-0>
       <div
         v-for="(zone, idx) in zones.value"
         :key="zone.name"
-        :class="itemHeight"
+        :style="{ height: `${timezoneItemHeight}px` }"
         flex="~ col none"
         text-xl
         justify-center
@@ -47,15 +47,28 @@
         </div>
       </div>
     </div>
-    <div of-x-auto of-visible>
+    <div of-x-auto of-visible relative>
       <div v-for="zone of zones.value" :key="zone.name" border="b base">
-        <div flex="~ col" gap3 px3 items-center>
-          <TimezoneItem :timezone="zone" :class="itemHeight" />
+        <div flex="~ row" items-center w-max>
+          <TimezoneItem
+            :timezone="zone"
+            :style="{
+              width: `${timezoneItemWidth}px`,
+              height: `${timezoneItemHeight}px`
+            }"
+            flex-none
+            px3
+          />
           <TimeDial :timezone="zone" />
         </div>
       </div>
     </div>
-    <SelectionOverlay absolute inset-0 />
+    <SelectionOverlay
+      :style="{ left: `${timezoneItemWidth}px` }"
+      absolute
+      inset-0
+      w-full
+    />
   </div>
 </template>
 
