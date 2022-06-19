@@ -1,8 +1,8 @@
 <template>
   <div v-show="pressed" pointer-events-none ref="overlay">
-    <div :style="leftWhiteout" absolute bg-white:50></div>
+    <div :style="leftWhiteout" absolute bg-base op80></div>
     <div :style="position" absolute border="3 green6 rounded" shadow></div>
-    <div :style="rightWhiteout" absolute bg-white:50></div>
+    <div :style="rightWhiteout" absolute bg-base op80></div>
   </div>
 </template>
 
