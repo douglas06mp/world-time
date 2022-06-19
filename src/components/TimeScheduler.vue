@@ -3,14 +3,12 @@
     <div
       v-for="(zone, idx) in zones.value"
       :key="zone.name"
-      p="x4 y2"
+      flex="~ gap3"
+      p="x2 y2"
       border="b base"
       relative
     >
-      <TimezoneItem :timezone="zone" w-max>
-        <TimeDial :timezone="zone" />
-      </TimezoneItem>
-      <div absolute left="-6" top-0 bottom-0 text-xl flex="~ col" justify-center>
+      <div text-xl flex="~ col" justify-center items-center w-5>
         <button
           v-if="homeZone.value !== zone.name"
           @click="removeZone(zone)"
@@ -28,7 +26,7 @@
           m--1px
           scale-75
         ></button>
-        <button
+        <!-- <button
           v-if="idx !== 0"
           @click="moveZone(zone, -1)"
           i-ri-arrow-up-s-fill
@@ -43,8 +41,11 @@
           icon-btn
           title="Move down"
           m--1px
-        ></button>
+        ></button> -->
       </div>
+      <TimezoneItem :timezone="zone" w-max>
+        <TimeDial :timezone="zone" />
+      </TimezoneItem>
     </div>
     <SelectionOverlay absolute inset-0 />
   </div>
