@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div of-x-auto relative>
     <div
       v-for="(zone, idx) in zones.value"
       :key="zone.name"
@@ -7,7 +7,7 @@
       border="b base"
       relative
     >
-      <TimezoneItem :timezone="zone">
+      <TimezoneItem :timezone="zone" w-max>
         <TimeDial :timezone="zone" />
       </TimezoneItem>
       <div absolute left="-6" top-0 bottom-0 text-xl flex="~ col" justify-center>
@@ -46,6 +46,7 @@
         ></button>
       </div>
     </div>
+    <SelectionOverlay absolute inset-0 />
   </div>
 </template>
 

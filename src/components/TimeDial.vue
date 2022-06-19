@@ -1,5 +1,5 @@
 <template>
-  <div flex="~ gap1" of-auto items-end>
+  <div flex="~ gap1" of-auto items-end select-none>
     <template v-for="(day, idx) of days" :key="idx">
       <div v-if="day.length" flex="~ none" border="~ sky7/30 rounded" of-hidden>
         <div
